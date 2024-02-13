@@ -1,0 +1,39 @@
+import unittest
+from 3-say_my_name.py import say_my_name
+
+def say_my_name(first_name, last_name=""):
+    # Check if first_name is a string
+    if not isinstance(first_name, str):
+        raise TypeError("first_name must be a string")
+
+    if not isinstance(last_name, str):
+        raise TypeError("last_name must be a string")
+
+    # Print the formatted name
+    print(f"My name is {first_name} {last_name}")
+
+class TestSayMyNameFunction(unittest.TestCase):
+
+    def test_valid_names(self):
+        # Test case with both first and last names provided
+        with self.assertLogs() as log:
+            say_my_name("Kaysee", "Clinton")
+        self.assertEqual(log.output, ["INFO:root:My name is Kaysee Clinton"])
+
+        # Test case with only the first name provided
+        with self.assertLogs() as log:
+            say_my_name("Billy")
+        self.assertEqual(log.output, ["INFO:root:My name is Billy "])
+
+    def test_invalid_names(self):
+        # Test case with non-string first name
+        with self.assertRaises(TypeError):
+            say_my_name(123, "Kaysee")
+
+        # Test case with non-string last name
+        with self.assertRaises(TypeError):
+            say_my_name("Xtreme", 456)
+
+if __name__ == '__main__':
+    unittest.main()
+
