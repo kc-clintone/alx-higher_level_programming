@@ -7,17 +7,17 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    # Define the characters that indicate a new line
-    new_line_chars = ['.', '?', ':']
+    count = 0
+    while count < len(text) and text[count] == " ":
+        count = count + 1
 
-    # Empty line
-    current_line = ""
-
-    for char in text:
-        if char in new_line_chars:
-            print(current_line.strip())
-            current_line = ""
-        else:
-            current_line += char
-    print(current_line.strip())
-
+    while count < len(text):
+        print(text[count], end="")
+        if text[count] == "\n" or text[count] in ".?:":
+            if text[count] in ".?:":
+                print("\n")
+            count = count + 1
+            while count < len(text) and text[count] == " ":
+                count = count + 1
+            continue
+        count = count + 1
