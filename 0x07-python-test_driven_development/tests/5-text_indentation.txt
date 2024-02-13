@@ -1,0 +1,53 @@
+import unittest
+
+from 5-text_indentation.py import text_indentation
+
+def text_indentation(text):
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+
+    # Define the characters that indicate a new line
+    new_line_chars = ['.', '?', ':']
+
+    # Initialize an empty line
+    current_line = ""
+
+    # Iterate through each character in the text
+    for char in text:
+        # Check if the character is one of the new line characters
+        if char in new_line_chars:
+            # Print the current line without spaces at the beginning or end
+            print(current_line.strip())
+            # Reset the current line to an empty string for the next line
+            current_line = ""
+        else:
+            # Append the character to the current line
+            current_line += char
+
+    # Print the last line (if any) without spaces at the beginning or end
+    print(current_line.strip())
+
+class TestTextIndentationFunction(unittest.TestCase):
+
+    def test_valid_text(self):
+        # Test case with a valid text containing '.', '?', and ':'
+        with self.assertLogs() as log:
+            text_indentation("This is a sample text. It has multiple sentences. How does it handle questions: let's see!")
+        expected_output = ["INFO:root:This is a sample text", "INFO:root:It has multiple sentences", "INFO:root:How does it handle questions: let's see!"]
+        self.assertEqual(log.output, expected_output)
+
+    def test_invalid_text(self):
+        # Test case with a non-string text
+        with self.assertRaises(TypeError):
+            text_indentation(123)
+
+    def test_no_special_characters(self):
+        # Test case with a text containing no '.', '?', or ':'
+        with self.assertLogs() as log:
+            text_indentation("This is a simple text")
+        expected_output = ["INFO:root:This is a simple text"]
+        self.assertEqual(log.output, expected_output)
+
+if __name__ == '__main__':
+    unittest.main()
+
