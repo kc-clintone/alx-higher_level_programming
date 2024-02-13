@@ -1,0 +1,44 @@
+import unittest
+from 2-matrix_divided.txt import matrix_divided
+
+class TestMatrixDividedFunction(unittest.TestCase):
+
+    def test_valid_matrix_division(self):
+        matrix = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ]
+        divisor = 2
+
+        result = matrix_divided(matrix, divisor)
+
+        expected_result = [
+            [0.5, 1.0, 1.5],
+            [2.0, 2.5, 3.0],
+            [3.5, 4.0, 4.5]
+        ]
+
+        self.assertEqual(result, expected_result)
+
+    def test_invalid_matrix(self):
+        # Test case with a non-matrix input
+        with self.assertRaises(TypeError):
+            matrix_divided([1, 2, 3], 2)
+
+        # Test case with rows of different sizes
+        with self.assertRaises(TypeError):
+            matrix_divided([[1, 2, 3], [4, 5], [6, 7, 8]], 2)
+
+    def test_invalid_divisor(self):
+        # Test case with a non-number divisor
+        with self.assertRaises(TypeError):
+            matrix_divided([[1, 2, 3], [4, 5, 6], [7, 8, 9]], "invalid")
+
+        # Test case with divisor equal to 0
+        with self.assertRaises(ZeroDivisionError):
+            matrix_divided([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 0)
+
+if __name__ == '__main__':
+    unittest.main()
+
