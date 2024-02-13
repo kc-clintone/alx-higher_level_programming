@@ -1,0 +1,32 @@
+import unittest
+from 0-add_integer.py import add_integer
+
+class TestAddIntegerFunction(unittest.TestCase):
+    
+    def test_add_integer(self):
+        # Test case where both arguments are integers
+        result = add_integer(3, 5)
+        self.assertEqual(result, 8)
+
+        # Test case where one argument is a float
+        result = add_integer(2.5, 4)
+        self.assertEqual(result, 6)
+
+        # Test case where both arguments are floats
+        result = add_integer(1.5, 2.5)
+        self.assertEqual(result, 4)
+
+        # Test case with default value for b
+        result = add_integer(7)
+        self.assertEqual(result, 105)  # 7 + 98
+
+    def test_invalid_arguments(self):
+        # Test case with invalid arguments (non-numeric)
+        with self.assertRaises(TypeError):
+            add_integer("invalid", 5)
+
+        with self.assertRaises(TypeError):
+            add_integer(3, "invalid")
+
+if __name__ == '__main__':
+    unittest.main()
