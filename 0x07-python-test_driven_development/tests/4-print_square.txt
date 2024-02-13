@@ -1,0 +1,46 @@
+import unittest
+
+from 4-print_square.py import print_squra
+
+def print_square(size):
+    # Check if size is an integer
+    if not isinstance(size, int):
+        raise TypeError("size must be an integer")
+
+    # Check if size is less than 0
+    if size < 0:
+        raise ValueError("size must be >= 0")
+
+    # Check if size is a float and less than 0
+    if isinstance(size, float) and size < 0:
+        raise TypeError("size must be an integer")
+
+    # Print the square
+    for _ in range(size):
+        print("#" * size)
+
+class TestPrintSquareFunction(unittest.TestCase):
+
+    def test_valid_size(self):
+        # Test case with a valid positive integer size
+        with self.assertLogs() as log:
+            print_square(3)
+        expected_output = ["INFO:root:###", "INFO:root:###", "INFO:root:###"]
+        self.assertEqual(log.output, expected_output)
+
+    def test_invalid_size(self):
+        # Test case with a non-integer size
+        with self.assertRaises(TypeError):
+            print_square("invalid")
+
+        # Test case with a negative size
+        with self.assertRaises(ValueError):
+            print_square(-2)
+
+        # Test case with a float size
+        with self.assertRaises(TypeError):
+            print_square(2.5)
+
+if __name__ == '__main__':
+    unittest.main()
+
