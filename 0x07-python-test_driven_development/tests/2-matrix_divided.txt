@@ -1,5 +1,5 @@
 import unittest
-from 2-matrix_divided.txt import matrix_divided
+from 2-matrix_divided.py import matrix_divided
 
 class TestMatrixDividedFunction(unittest.TestCase):
 
