@@ -2,6 +2,7 @@
 """Let's engineer a class that deals with rectangles"""
 class Rectangle:
     """Well now it does something"""
+    number_of_instances=0
     def __init__(self, height=0, width=0):
         self.height = height
         self.width = width
@@ -9,7 +10,7 @@ class Rectangle:
     @property
     def height(self):
         return self.__height
-            @height.setter
+    @height.setter
     def height(self, value):
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
@@ -46,5 +47,5 @@ class Rectangle:
         return "Rectangle({:d}, {:d})".format(self.__height, self.__width)
     def __del__(self):
         """prompt for showing deleted objects"""
-        print("Success. Deleted")
+        print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
