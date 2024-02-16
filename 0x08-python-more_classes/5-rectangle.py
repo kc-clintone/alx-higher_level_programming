@@ -45,4 +45,4 @@ class Rectangle:
         return "Rectangle({:d}, {:d})".format(self.__height, self.__width)
     def __del__(self):
         """prompt for showing deleted objects"""
-        print("Success. Deleted")
+        print("Bye rectangle...")
