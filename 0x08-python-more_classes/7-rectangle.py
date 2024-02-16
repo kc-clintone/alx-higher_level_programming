@@ -42,7 +42,7 @@ class Rectangle:
             if c < self.__height - 1:
                 rect += "\n"
         return (rect)
-    def __rep__(self):
+    def __repr__(self):
         return "Rectangle({:d}, {:d})".format(self.__height, self.__width)
     def __del__(self):
         """prompt for showing deleted objects"""
