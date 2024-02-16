@@ -4,7 +4,7 @@ class Rectangle:
     """Well now it does something"""
     number_of_instances = 0
     print_symbol = "#"
-    def __init__(self, height=0, width=0):
+    def __init__(self, width=0, height=0):
         self.height = height
         self.width = width
         Rectangle.number_of_instances += 1
