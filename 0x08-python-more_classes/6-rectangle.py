@@ -5,6 +5,7 @@ class Rectangle:
     def __init__(self, height=0, width=0):
         self.height = height
         self.width = width
+        Rectangle.number_of_instances += 1
     @property
     def height(self):
         return self.__height
