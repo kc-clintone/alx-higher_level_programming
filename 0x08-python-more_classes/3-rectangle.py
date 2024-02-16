@@ -2,7 +2,7 @@
 """Let's engineer a class that deals with rectangles"""
 class Rectangle:
     """Well now it does something"""
-    def __init__(self, height=0, width=0):
+    def __init__(self, width=0, height=0):
         self.height = height
         self.width = width
     @property
@@ -26,7 +26,7 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         self.__width = value
     def area(self):
-        return (self.__height * self.__width)
+        return (self.__width * self.__height)
     def perimeter(self):
         if self.__height == 0 or self.__width == 0:
             return (0)
