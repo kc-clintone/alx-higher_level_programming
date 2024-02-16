@@ -2,7 +2,7 @@
 """Let's engineer a class that deals with rectangles"""
 class Rectangle:
     """Well now it does something"""
-    def __init__(self, height=0, width=0):
+    def __init__(self, width=0, height=0):
         self.height = height
         self.width = width
         Rectangle.number_of_instances += 1
@@ -42,7 +42,7 @@ class Rectangle:
             if c < self.__height - 1:
                 rect += "\n"
         return (rect)
-    def __rep__(self):
+    def __repr__(self):
         return "Rectangle({:d}, {:d})".format(self.__height, self.__width)
     def __del__(self):
         """prompt for showing deleted objects"""
