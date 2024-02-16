@@ -1,4 +1,3 @@
-GNU nano 7.2                    5-rectangle.py
 #!/usr/bin/python3
 """Let's engineer a class that deals with rectangles"""
 class Rectangle:
