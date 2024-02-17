@@ -3,6 +3,9 @@
 """This is a base class"""
 
 import json
+import csv
+import turtle
+import os
 
 class Base:
     """
@@ -107,3 +110,83 @@ class Base:
                 return [cls.create(**obj) for obj in dict_list]
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Writing the CSV representation of list_objs to a file.
+
+        Args:
+            list_objs (list): a List of instances inheriting from Base.
+        """
+        f_name = f"{cls.__name__}.csv"
+        with open(f_name, 'w', newline='') as file:
+            writer = csv.writer(file)
+            if list_objs is not None:
+                for obj in list_objs:
+                    if cls.__name__ == "Rectangle":
+                        writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+                    elif cls.__name__ == "Square":
+                        writer.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Returns a list of instances from a CSV file.
+
+        Returns:
+            list: a List of instances loaded from the file.
+        """
+        f_name = f"{cls.__name__}.csv"
+        try:
+            with open(f_name, 'r') as file:
+                reader = csv.reader(file)
+                instances = []
+                for row in reader:
+                    if cls.__name__ == "Rectangle":
+                        instances.append(cls(int(row[0]), int(row[1]), int(row[2]), int(row[3]), int(row[4])))
+                    elif cls.__name__ == "Square":
+                        instances.append(cls(int(row[0]), int(row[1]), int(row[2]), int(row[3])))
+                return instances
+        except FileNotFoundError:
+            return []
+
+
+    #Now we draw shapes
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        Let's draw the rectangles and Squares using Turtle graphics.
+
+        Args:
+            list_rectangles (list): a List of Rectangle instances.
+            list_squares (list): a List of Square instances.
+        """
+        screen = turtle.Screen()
+        screen.bgcolor("white")
+        screen.title("Drawing Rectangles and Squares")
+
+        pen = turtle.Turtle()
+        pen.speed(2)
+
+        for rect in list_rectangles:
+            pen.penup()
+            pen.goto(rect.x, rect.y)
+            pen.pendown()
+            pen.color("blue")
+            for _ in range(2):
+                pen.forward(rect.width)
+                pen.left(90)
+                pen.forward(rect.height)
+                pen.left(90)
+
+        for square in list_squares:
+            pen.penup()
+            pen.goto(square.x, square.y)
+            pen.pendown()
+            pen.color("red")
+            for _ in range(4):
+                pen.forward(square.size)
+                pen.left(90)
+
+        turtle.done()
