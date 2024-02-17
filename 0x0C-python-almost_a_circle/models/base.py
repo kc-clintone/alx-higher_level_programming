@@ -2,6 +2,8 @@
 
 """This is a base class"""
 
+import json
+
 class Base:
     """
     Base class for managing id attribute in future classes.
@@ -21,3 +23,18 @@ class Base:
         else:
             type(self).__nb_objects += 1
             self.id = type(self).__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+        Here, we convert a list of dictionaries to a JSON string.
+
+        Args:
+            list_dictionaries (list): a List of dictionaries.
+
+        Returns:
+            str: a JSON string representation of the list of dictionaries.
+        """
+        if not list_dictionaries or list_dictionaries is None:
+            return "[]"
+        return json.dumps(list_dictionaries)
