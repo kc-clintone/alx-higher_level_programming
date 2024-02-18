@@ -3,11 +3,17 @@
 This module contains a function that prints a text with 2
 new lines after each of these characters: ., ? and :
 """
+
 def text_indentation(text):
-    """lets see some indents"""
+    """lets see some indents
+        Args:
+            text (str): The string to be printed
+
+        Raises:
+            TypeError: If text is not a string
+    """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-
     count = 0
     while count < len(text) and text[count] == " ":
         count = count + 1
