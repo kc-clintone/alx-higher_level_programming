@@ -4,13 +4,13 @@ This module contains a function that prints a text with 2
 new lines after each of these characters: ., ? and :
 """
 def text_indentation(text):
+    """lets see some indents"""
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
     count = 0
     while count < len(text) and text[count] == " ":
         count = count + 1
-
     while count < len(text):
         print(text[count], end="")
         if text[count] == "\n" or text[count] in ".?:":
@@ -21,3 +21,4 @@ def text_indentation(text):
                 count = count + 1
             continue
         count = count + 1
+
