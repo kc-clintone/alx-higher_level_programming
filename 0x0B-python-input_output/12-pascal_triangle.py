@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module defines the famouse Pascal's Triangle function"""
 
+
 def pascal_triangle(n):
     """This function represents Pascal's Triangle of size n"""
     if n <= 0:
