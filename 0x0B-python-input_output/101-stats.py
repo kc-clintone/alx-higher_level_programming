@@ -10,6 +10,7 @@ def print_stats(size, status_codes):
     for i in sorted(status_codes):
         print("{}: {}".format(i, status_codes[i]))
 
+
 if __name__ == "__main__":
     import sys
 
