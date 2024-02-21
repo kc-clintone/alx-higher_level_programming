@@ -1,4 +1,3 @@
 #!/usr/bin/python3
-def prnt_lst(this_list=[]):
-    for x in this_list:
-        print("{:d}".format(x))
+def square_matrix_simple(matrix=[]):
+    return [list(map(lambda x: x ** 2, row)) for row in matrix]
