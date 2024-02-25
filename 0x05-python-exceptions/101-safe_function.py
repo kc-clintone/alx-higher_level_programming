@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 import sys
 """Safe function example"""
 def safe_function(fct, *args):
