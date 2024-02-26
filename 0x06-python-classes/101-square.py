@@ -74,7 +74,7 @@ class Square:
         """
         return self.__size * self.__size
 
-    def print_position(self):
+    def pos_print(self):
         """Print"""
         position_ = ""
         if not self.size:
