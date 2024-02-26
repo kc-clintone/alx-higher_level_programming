@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Still a continuation, just expanding the class"""
 
+
 class Square:
     """You already know what this is"""
     def __init__(self, size=0):
@@ -16,10 +17,12 @@ class Square:
         if size < 0:
             raise ValueError('size must be >= 0')
         self.__size = size
+
     @property
     def size(self):
         """Well, this function gets the size of the square"""
         return self.__size
+
     @size.setter
     def size(self, value):
         if not isinstance(value, int):
@@ -27,10 +30,12 @@ class Square:
         if value < 0:
             raise ValueError('size must be >= 0')
         self.__size = value
+
     @property
     def position(self):
         """Coordinates of the square...is it? """
         return self.__position
+
     @position.setter
     def position(self, value):
         """All conditions still hold, now let's set the position """
@@ -47,6 +52,7 @@ class Square:
         Returns: The size squared
         """
         return self.__size * self.__size
+
     def print_position(self):
         """returns the vector position of the square"""
         _position = ""
@@ -61,6 +67,7 @@ class Square:
                 _position += "#"
             _position += "\n"
         return _position
+
     def _print_square(self):
         """I guess this fn uses the character # to print the square"""
         if self.__size == 0:
