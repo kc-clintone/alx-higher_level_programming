@@ -68,7 +68,7 @@ class Square:
             _position += "\n"
         return _position
 
-    def _print_square(self):
+    def my_print(self):
         """I guess this fn uses the character # to print the square"""
         if self.__size == 0:
             print()
