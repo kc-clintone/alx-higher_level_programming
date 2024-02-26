@@ -1,17 +1,19 @@
 #!/usr/bin/python3
 """The n-queen puzzle, evee had of that?"""
-
 import sys
+
 
 def init_board(n):
     board = []
     [board.append([]) for i in range(n)]
     [row.append(' ') for i in range(n) for row in board]
     return (board)
+
 def board_deepcopy(board):
     if isinstance(board, list):
         return list(map(board_deepcopy, board))
     return (board)
+
 def get_solution(board):
     sol = []
     for row in range(len(board)):
@@ -20,6 +22,7 @@ def get_solution(board):
                 sol.append([row, column])
                 break
     return (sol)
+
 def xout(board, row, col):
     for column in range(col + 1, len(board)):
         board[row][column] = "x"
@@ -53,6 +56,7 @@ def xout(board, row, col):
             break
         board[row][column] = "x"
         column -= 1
+
 def recursive_solve(board, row, queens, solutions):
     if queens == len(board):
         solutions.append(get_solution(board))
