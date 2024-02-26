@@ -1,26 +1,29 @@
 #!/usr/bin/python3
-"""Still a continuation, just expanding the class"""
+"""Square"""
 
 
 class Square:
-    """You already know what this is"""
-    def __init__(self, size=0):
-        """Same descriptions as before
-        args:
-            size: size of sqaure
-        raises:
-            TypeError: if size != integer
-            ValueError: if size < zero
+    """Instanciate square"""
+
+    def __init__(self, size=0, position=(0, 0)):
+        """Square
+        Args:
+            size: length
+            position: coordinates
         """
-        if not isinstance(size, int):
-            raise TypeError('size must be an integer')
-        if size < 0:
-            raise ValueError('size must be >= 0')
-        self.__size = size
+        self.size = size
+        self.position = position
+
+    def __str__(self):
+        self.my_print()
 
     @property
     def size(self):
-        """Well, this function gets the size of the square"""
+        """Props
+        Raises:
+            TypeError: if size != int
+            ValueError: if size < 0
+        """
         return self.__size
 
     @size.setter
@@ -33,12 +36,19 @@ class Square:
 
     @property
     def position(self):
-        """Coordinates of the square...is it? """
+        """Props
+        Raises:
+            TypeError: if value != a tuple of 2 integers < 0
+        """
         return self.__position
 
     @position.setter
     def position(self, value):
-        """All conditions still hold, now let's set the position """
+        """Position of quare
+        Args: value
+        Raises:
+            TypeError: if value is not a tuple or any int in tuple < 0
+        """
         if not isinstance(value, tuple):
             raise TypeError('position must be a tuple of 2 positive integers')
         if len(value) != 2:
@@ -48,29 +58,26 @@ class Square:
         self.__position = value
 
     def area(self):
-        """Get the area of a Square
-        Returns: The size squared
+        """Get area of Square
+        Returns: Size
         """
         return self.__size * self.__size
 
-    def print_position(self):
-        """returns the vector position of the square"""
-        _position = ""
+    def pos_print(self):
+        """returns coordinates"""
+        cord = ""
         if self.size == 0:
             return "\n"
-        for t in range(self.position[1]):
-            _position += "\n"
-        for t in range(self.size):
-            for i in range(self.position[0]):
-                _position += " "
-            for j in range(self.size):
-                _position += "#"
-            _position += "\n"
-        return _position
+        for x in range(self.position[1]):
+            cord += "\n"
+        for x in range(self.size):
+            for y in range(self.position[0]):
+                cord += " "
+            for z in range(self.size):
+                cord += "#"
+            cord += "\n"
+        return cord
 
     def my_print(self):
-        """I guess this fn uses the character # to print the square"""
-        if self.__size == 0:
-            print()
-        for x in range(self.__size):
-            print("#" * self.__size)
+        """print the square"""
+        print(self.pos_print(), end='')
