@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Now this is a module...more later"""
 
+
 class Square:
     """We add stuff...to the class"""
     def __init__(self, size=0):
