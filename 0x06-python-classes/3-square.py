@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Still a continuation, just expanding the class"""
 
+
 class Square:
     """You already know what this is"""
     def __init__(self, size=0):
