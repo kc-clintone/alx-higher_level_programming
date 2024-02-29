@@ -4,7 +4,6 @@ struct listint_s
 {
 int n;
 struct listint_s *next;
-};
 typedef struct listint_s listint_t;
 /**
  * is_palindrome - Checks if a singly linked list is a palindrome.
