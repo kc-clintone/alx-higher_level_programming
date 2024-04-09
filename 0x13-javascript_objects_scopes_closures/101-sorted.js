@@ -3,11 +3,11 @@
 const d = require('./101-data.js').dict;
 const nd = {};
 
-Object.getOwnPropertyNames(dict).forEach(k => {
-  if (nd[dict[k]] === undefined) {
-    nd[dict[k]] = [k];
+Object.getOwnPropertyNames(d).forEach(k => {
+  if (nd[d[k]] === undefined) {
+    nd[d[k]] = [k];
   } else {
-    nd[dict[k]].push(k);
+    nd[d[k]].push(k);
   }
 });
 console.log(nd);
