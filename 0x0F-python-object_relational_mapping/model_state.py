@@ -1,13 +1,24 @@
 #!/usr/bin/python3
 """
-A script that defines a State class and a Base
-class to work with MySQLAlchemy ORM.
+This script defines a State class and
+a Base class to work with MySQLAlchemy ORM.
 """
-import sys
-from model_state import Base, State
 
-from sqlalchemy import (create_engine)
+from sqlalchemy import Column, String, Integer
+from sqlalchemy.ext.declarative import declarative_base
 
-if __name__ == "__main__":
-    ngin = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
+bse = declarative_base()
+
+
+class State(bse):
+    """
+    The state class
+    Attributes:
+        __tablename__ (str): Table name of the class
+        id (int): State id of the class
+        name (str): State name of the class
+    """
+    __tablename__ = 'states'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(128), nullable=False)
