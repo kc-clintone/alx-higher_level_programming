@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-A script that takes in an argument and displays all values
-in the states where `name` matches the argument from the
-database `hbtn_0e_0_usa`.
+A script that takes in an argument and displays all
+values in the states where `name` matches the argument
+from the database `hbtn_0e_0_usa`.
 """
 
 import MySQLdb as db
@@ -18,10 +18,10 @@ if __name__ == '__main__':
     csr = conn.cursor()
 
     csr.execute(
-    "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY \
-        states.id ASC".format(argv[4]))
+        "SELECT * FROM states WHERE name LIKE BINARY '{}'
+         ORDER BY \ states.id ASC".format(argv[4]))
 
-    resulsts = csr.fetchall()
+    results = csr.fetchall()
 
     for item in results:
         print(item)
