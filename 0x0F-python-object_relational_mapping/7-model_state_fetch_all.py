@@ -18,9 +18,9 @@ if __name__ == "__main__":
         argv[1], argv[2], argv[3])
 
     ngin = create_engine(dburl)
-    Session = sessionmaker(bind=ngin)
+    sn = sessionmaker(bind=ngin)
 
-    session = Session()
+    k = sn()
 
-    for i in session.query(State).order_by(State.id):
+    for i in k.query(State).order_by(State.id):
         print('{0}: {1}'.format(i.id, i.name))
