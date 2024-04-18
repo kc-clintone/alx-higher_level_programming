@@ -22,8 +22,8 @@ if __name__ == "__main__":
 
     x = sn()
 
-    results = x.query(State).order_by(State.id).first()
-    if results is not None:
-        print('{0}: {1}'.format(results.id, results.name))
+    res = x.query(State).order_by(State.id).first()
+    if res is not None:
+        print('{0}: {1}'.format(res.id, res.name))
     else:
         print("Nothing")
