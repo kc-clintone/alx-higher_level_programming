@@ -14,7 +14,7 @@ if __name__ == "__main__":
     """
 
     dbconn = db.connect(host="localhost", port=3306,
-             user=argv[1], passwd=argv[2], db=argv[3])
+                        user=argv[1], passwd=argv[2], db=argv[3])
     with dbconn.cursor() as csr:
         csr.execute("""
             SELECT
