@@ -1,8 +1,11 @@
 #!/usr/bin/python3
+"""
+Safe function example
+"""
+
 import sys
 
 
-"""Safe function example"""
 def safe_function(fct, *args):
     try:
         return fct(*args)
