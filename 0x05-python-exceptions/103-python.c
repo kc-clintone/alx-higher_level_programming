@@ -88,7 +88,7 @@ printf("[*] Size of the Python List = %ld\n", x);
 printf("[*] Allocated = %ld\n", y);
 for (z = 0; z < x; z++)
 {
-type = list->ob_item[i]->ob_type->tp_name;
+type = list->ob_item[z]->ob_type->tp_name;
 printf("Element %ld: %s\n", z, type);
 if (strcmp(type, "bytes") == 0)
 print_python_bytes(list->ob_item[z]);
