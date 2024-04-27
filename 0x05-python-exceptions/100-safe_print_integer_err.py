@@ -1,6 +1,11 @@
 #!/usr/bin/python3
+"""
+Prints int error
+"""
+
 import sys
-"""Print int error"""
+
+
 def safe_print_integer_err(value):
     try:
         print("{:d}".format(value))
