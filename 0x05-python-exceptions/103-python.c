@@ -55,7 +55,7 @@ printf("  first %ld bytes: ", x);
 for (y = 0; y < x; y++)
 {
 printf("%02hhx", bytes->ob_sval[y]);
-if (y == (size - 1))
+if (y == (x - 1))
 printf("\n");
 else
 printf(" ");
