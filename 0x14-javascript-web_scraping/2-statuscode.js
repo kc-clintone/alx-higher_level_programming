@@ -3,7 +3,7 @@
 const req = require('request');
 const payload = process.argv[2];
 
-request(payload, function (e, res) {
+req(payload, function (e, res) {
   if (e) {
     console.log(e);
   } else {
