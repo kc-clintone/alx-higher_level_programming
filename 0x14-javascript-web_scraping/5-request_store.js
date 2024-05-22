@@ -15,7 +15,7 @@ request(url, (error, response, body) => {
         return;
     }
     if (response.statusCode !== 200) {
-        console.error(`Request failed. Status code: ${response.statusCode}`);
+        console.error(`Error. Status code: ${response.statusCode}`);
         return;
     }
     fs.writeFile(filePath, body, 'utf8', (err) => {
