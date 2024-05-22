@@ -1,16 +1,16 @@
 #!/usr/bin/node
 
-const req = require('request');
-const payload = process.argv[2];
+const request = require('request');
+const url = process.argv[2];
 
-req(payload, function (err, response, body) {
+request(url, function (err, response, body) {
   if (err) {
     console.log(err);
   } else if (response.statusCode === 200) {
-    const done = {};
+    const completed = {};
     const tasks = JSON.parse(body);
-    for (const k in tasks) {
-      const task = tasks[k];
+    for (const i in tasks) {
+      const task = tasks[i];
       if (task.completed === true) {
         if (completed[task.userId] === undefined) {
           completed[task.userId] = 1;
