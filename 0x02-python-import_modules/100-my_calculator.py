@@ -2,6 +2,8 @@
 """
 My calculator module
 """
+
+
 import sys
 from calculator_1 import add, sub, mul, div
 
@@ -31,6 +33,7 @@ def main():
         sys.exit(1)
 
     print(f"{a} {operator} {b} = {result}")
+
 
 if __name__ == "__main__":
     main()
