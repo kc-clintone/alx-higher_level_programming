@@ -1,23 +1,54 @@
-#!/usr/bin/python3
-from calculator_1 import add, sub, mul, div
-from sys import argv
-if __name__ == "__main__":
-    length = len(argv)
-    if length != 4:
-        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        exit(1)
-    if length == 4:
-        operator = argv[2]
-        a = int(argv[1])
-        b = int(argv[3])
-        if operator == "+":
-            print("{:d} + {:d} = {:d}".format(a, b, add(a, b)))
-        elif operator == "-":
-            print("{:d} - {:d} = {:d}".format(a, b, sub(a, b)))
-        elif operator == "*":
-            print("{:d} * {:d} = {:d}".format(a, b, mul(a, b)))
-        elif operator == "/":
-            print("{:d} / {:d} = {:d}".format(a, b, div(a, b)))
-        else:
-            print("Unknown operator. Available operators: +, -, * and /")
-            exit(1)
+def add(a, b):
+    """
+    My addition function
+
+    Args:
+        a: first integer
+        b: second integer
+
+    Returns:
+        The sum of a + b
+    """
+    return (a + b)
+
+
+def sub(a, b):
+    """
+    Subtraction function
+
+    Args:
+        a: first integer
+        b: second integer
+
+    Returns:
+        The difference a - b
+    """
+    return (a - b)
+
+
+def mul(a, b):
+    """
+    Multiplication function
+
+    Args:
+        a: first integer
+        b: second integer
+
+    Returns:
+        The product of a * b
+    """
+    return (a * b)
+
+
+def div(a, b):
+    """
+    Division function
+
+    Args:
+        a: first integer
+        b: second integer
+
+    Returns:
+        The value of a / b
+    """
+    return int(a / b)
