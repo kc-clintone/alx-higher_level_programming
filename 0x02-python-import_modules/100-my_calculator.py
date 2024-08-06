@@ -1,9 +1,15 @@
 #!/usr/bin/python3
+"""
+My calculator module
+"""
 import sys
 from calculator_1 import add, sub, mul, div
 
 
 def main():
+    """
+    My calculator function
+    """
     if len(sys.argv) != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
@@ -28,4 +34,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
