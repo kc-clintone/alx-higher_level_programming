@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-def magic_calculation(i, j):
-    add, sub = __import__('magic_calculation_102', globals(), locals(), ['add', 'sub']).add, __import__('magic_calculation_102', globals(), locals(), ['add', 'sub']).sub
-
-    if i < j:
-        x = add(i, j)
+def magic_calculation(a, b):
+    from magic_calculation_102 import add, sub
+    if a < b:
+        c = add(a, b)
         for i in range(4, 6):
-            x = add(x, k)
-        return x
+            c = add(c, i)
+        return c
     else:
-        return sub(i, j)
+        return sub(a, b)
