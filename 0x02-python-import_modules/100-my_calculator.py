@@ -1,54 +1,50 @@
 def add(a, b):
-    """
-    My addition function
+    """My addition function
 
     Args:
         a: first integer
         b: second integer
 
     Returns:
-        The sum of a + b
+        The return value. a + b
     """
     return (a + b)
 
 
 def sub(a, b):
-    """
-    Subtraction function
+    """My subtraction function
 
     Args:
         a: first integer
         b: second integer
 
     Returns:
-        The difference a - b
+        The return value. a - b
     """
     return (a - b)
 
 
 def mul(a, b):
-    """
-    Multiplication function
+    """My multiplication function
 
     Args:
         a: first integer
         b: second integer
 
     Returns:
-        The product of a * b
+        The return value. a * b
     """
     return (a * b)
 
 
 def div(a, b):
-    """
-    Division function
+    """My division function
 
     Args:
         a: first integer
         b: second integer
 
     Returns:
-        The value of a / b
+        The return value. a / b
     """
     return int(a / b)
