@@ -5,7 +5,8 @@ This function/module has one function that adds two integers.
 
 
 def add_integer(a, b=98):
-    """Returns sum of two integers/floats as integers
+    """
+    Returns sum of two integers/floats as integers
 
     Arguments:
         a: The first argument
