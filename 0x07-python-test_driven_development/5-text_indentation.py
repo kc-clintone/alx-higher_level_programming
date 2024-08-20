@@ -4,8 +4,10 @@ This module contains a function that prints a text with 2
 new lines after each of these characters: ., ? and :
 """
 
+
 def text_indentation(text):
-    """lets see some indents
+    """
+    Let's see some indents
         Args:
             text (str): The string to be printed
 
@@ -27,4 +29,3 @@ def text_indentation(text):
                 count = count + 1
             continue
         count = count + 1
-
